@@ -1,0 +1,6 @@
+bind v exec mpv "%l"
+bind i exec feh "%l"
+
+
+global-section-hide true
+global-section-name "☦ Данас"

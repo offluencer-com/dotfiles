@@ -1,0 +1,19 @@
+{{
+  "base": "dark",
+  "colors": {{
+    "window": "{background}",
+    "panel": "{background}",
+    "surface": "{color0}",
+    "surface_hover": "{color8}",
+    "surface_active": "{color8}",
+    "outline": "{color8}",
+    "text": "{foreground}",
+    "secondary": "{color7}",
+    "dim": "{color8}",
+    "accent": "{color4}",
+    "accent_hover": "{color6}",
+    "on_accent": "{background}",
+    "danger": "{color1}",
+    "warning": "{color3}"
+  }}
+}}

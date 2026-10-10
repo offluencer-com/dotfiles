@@ -1,0 +1,58 @@
+
+# General settings (can be in the global section or at the top)
+[global]
+monitor = 0
+follow = keyboard
+indicate_hidden = yes
+shrink = yes
+transparency = 20
+separator_height = 2
+padding = 0
+horizontal_padding = 8
+frame_width = 0
+separator_color = auto
+sort = yes
+idle_threshold = 120
+font = JetBrainsMono Nerd Font 12
+line_height = 0
+markup = full
+format = "<b>%s</b>\n%b"
+alignment = left
+show_age_threshold = 60
+word_wrap = true
+ellipsize = middle
+ignore_newline = no
+stack_duplicates = true
+hide_duplicate_count = true
+show_indicators = no
+icon_position = left
+max_icon_size = 48
+sticky_history = yes
+history_length = 20
+dmenu = dmenu -p dunst
+browser = /usr/bin/brave-browser --new-tab
+always_run_script = true
+title = Dunst
+class = Dunst
+mouse_left_click = do_action, close_current
+mouse_right_click = close_all
+
+[experimental]
+per_monitor_dpi = false
+
+# Urgency-specific settings
+[urgency_low]
+background = "{color0}"
+foreground = "{color7}"
+timeout = 5
+
+[urgency_normal]
+background = "{color1}"
+foreground = "{color7}"
+timeout = 5
+
+[urgency_critical]
+background = "{color2}"
+foreground = "{color7}"
+timeout = 0
+

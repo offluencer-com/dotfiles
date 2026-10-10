@@ -1,0 +1,63 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+/* Window */
+window {
+    width: 13%;
+    border: 0;
+    padding: 1px;
+    scroll-method: 0;
+}
+
+/* List */
+listview {
+    lines: 4;
+    columns: 1;
+    fixed-height: 0;
+    border: 0;
+    border-color: @foreground;
+    spacing: 0;
+    scrollbar: false;
+    padding: 0;
+}
+
+/* Text */
+element-text {
+    font: "JetBrainsMono Nerd Font 14";
+    highlight: none;
+}
+
+/* Input */
+inputbar {
+    padding: 0;
+    border: 0;
+    prompt: "";
+    placeholder: "";
+    children: [
+        textbox-prompt-colon,
+        entry,
+        case-indicator
+    ];
+    background-color: @background;
+}
+
+entry {
+    placeholder: "";
+    background-color: @background;
+    padding: 0;
+    margin: 0;
+    font: "JetBrainsMono Nerd Font 16";
+}
+
+/* Keyboard */
+configuration {
+    display-drun: "false";
+    kb-row-down: "Alt+j";
+    kb-row-up: "Alt+k";
+    kb-accept-entry: "Return,KP_Enter";
+}
+
+/* Prompt */
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+}
+

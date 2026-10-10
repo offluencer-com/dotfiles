@@ -1,0 +1,66 @@
+[opener]
+
+pdf = [
+  { run = 'zathura %s', orphan = true },
+]
+
+epub = [
+  { run = 'zathura %s', orphan = true },
+]
+
+cbz = [
+  { run = 'zathura %s', orphan = true },
+]
+
+cbr = [
+  { run = 'zathura %s', orphan = true },
+]
+
+edit = [
+  { run = 'nvim %s', block = true },
+]
+
+open = [
+  { run = 'nvim %s', block = true },
+]
+
+image = [
+  { run = 'nsxiv %s', orphan = true },
+]
+
+video = [
+  { run = 'mpv %s', orphan = true },
+]
+
+extract = [
+  { run = 'mkdir -p "%n_extracted" && tar xf %s -C "%n_extracted" 2>/dev/null || 7z x %s -o"%n_extracted"', orphan = true },
+]
+[open]
+
+rules = [
+  # images → nsxiv
+  { mime = "image/*", use = "image" },
+
+  # videos → mpv
+  { mime = "video/*", use = "video" },
+
+  # text → nvim
+  { mime = "text/*", use = "edit" },
+  { mime = "inode/empty", use = "edit" },
+{ mime = "application/pdf", use = "pdf" },
+  { mime = "application/epub+zip", use = "epub" },
+
+  # fallback → nvim
+
+{ mime = "application/zip", use = "extract" },
+{ mime = "application/x-rar", use = "extract" },
+{ mime = "application/x-7z-compressed", use = "extract" },
+{ mime = "application/x-tar", use = "extract" },
+{ mime = "application/gzip", use = "extract" },
+ { mime = "*", use = "edit" },
+]
+
+
+[mgr]
+linemode = "size"
+

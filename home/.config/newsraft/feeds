@@ -1,0 +1,24 @@
+
+@ ☦︎ Православље
+$(~/.config/newsraft/scripts/pravoslavlje.py) "☦︎ ПРАВОСЛАВНИ КАЛЕНДАР ☦︎"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4ocopmnWmwViIHELoo1Gkg "🪽 Harmony "
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg31r4coKu7CusmSJqH6U9Q "🪽 Memory Eternal"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCN2lK-Mg27E2Vf9FXkpNY7A "🕊️ ВИДОВДАН"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCkpBmkoZ6yToHhB8uFDp46Q "🕊️ Father Spyridon"
+
+@ ♖ Бањалука
+$(~/.config/newsraft/scripts/bl-kultura.py) "Kултурни догађаји"
+$(~/.config/newsraft/scripts/bl-knjizevnost.py) "Књижевност"
+
+@  Books
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXat06LvIYIyE2SpV_IuVjA "󱐍 Malcom Guite"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCt1l4Ylure5shNoeQSHASnQ " Parish & Pub"
+
+
+@  Linux
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA " Luke Smith"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwHwDuNd9lCdA7chyyquDXw " Bread on Penguins"
+
+@ 󰑬 Blogs
+https://feeds.feedburner.com/brainpickings/rss "TheMarginalian"
+https://malcolmguite.wordpress.com/feed/ "󱐍 Malcom Guite"

@@ -1,0 +1,33 @@
+@import url("colors-wal.css");
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+}
+window#waybar {
+    background: alpha(@background, 0.75);
+    color: @foreground;
+    border: none;
+
+}#workspaces button {
+    padding: 0 8px;
+    color: @color4;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: @foreground;
+    background: transparent;
+    font-weight: bold;
+}
+#battery {
+    padding: 0 10px;
+    color: @color4;
+}
+
+#clock {
+    padding: 0 10px;
+    color: @color4;
+}

@@ -1,0 +1,33 @@
+# : Status bar {{{
+
+[indicator]
+padding = { open = " ", close = " " }
+[status]
+
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+overall = {}
+
+# Permissions
+perm_sep   = { fg = "darkgray" }
+perm_type  = { fg = "green" }
+perm_read  = { fg = "yellow" }
+perm_write = { fg = "red" }
+perm_exec  = { fg = "cyan" }
+
+
+#border
+border_symbol = "│"
+[icon]
+dirs = [
+  { name = "*", text = "", fg = "black" }
+]
+[tabs]
+
+active = { fg = "white", bg = "blue" }
+inactive = { fg = "gray", bg = "black" }
+
+# 🚫 remove rounded separators
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+# : }}}
