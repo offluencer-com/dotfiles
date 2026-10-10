@@ -1,0 +1,11 @@
+brave-bin
+brave-debloater
+iloader-bin
+localsend-bin
+newsraft
+proton-mail-bin
+python-pywal16
+spotifast-bin
+ttf-libron
+yay
+yay-debug
