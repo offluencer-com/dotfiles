@@ -82,6 +82,7 @@ fi
 
 # Links to files pywal generates (not stored in the repo).
 ln -sfn "$HOME/.cache/wal/colors-waybar.css" "$DOTFILES/home/.config/waybar/colors-wal.css"
+ln -sfn "$HOME/.cache/wal/colors-zathura"    "$DOTFILES/home/.config/zathura/colors-wal"
 ln -sfn "$HOME/.cache/wal/gtk-colors.css"    "$HOME/.config/gtk-3.0/gtk-colors.css"
 
 WALL="$DOTFILES/wallpapers/$DEFAULT_WALLPAPER"

@@ -299,9 +299,8 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- Pin/unpin the focused floating window to all workspaces
+hl.bind(mainMod .. " + S", hl.dsp.window.pin({ action = "toggle" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -395,6 +394,17 @@ hl.window_rule({
     center = true,
 })
 
+-- Webcam: floating, on every workspace, bottom-right corner, never focused
+hl.window_rule({
+    name  = "webcam",
+    match = { class = "^webcam$" },
+
+    float    = true,
+    pin      = true,
+    move     = "monitor_w-300 monitor_h-280",
+    opacity  = "1.0 override 1.0 override",
+    no_focus = true,
+})
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd(
     "grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"

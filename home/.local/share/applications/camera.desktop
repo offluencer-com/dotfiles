@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Camera
+Comment=Webcam window (run again to close)
+Exec=sh -c 'exec "$HOME/dotfiles/scripts/camera.sh"'
+Icon=camera-web
+Terminal=false
+Categories=Utility;

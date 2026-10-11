@@ -1,5 +1,5 @@
 
-include ~/.cache/wal/colors-zathura
+include colors-wal
 
 
 # set recolor-lightcolor "rgba(0, 0, 0, 0)"
