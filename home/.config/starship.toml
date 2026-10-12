@@ -1,0 +1,7 @@
+[custom.claude]
+when = '''test -d "$HOME/.claude/projects/$(pwd | sed 's/[^a-zA-Z0-9]/-/g')"'''
+command = "echo"
+shell = ["sh"]
+symbol = "✻"
+style = "bold #d97757"
+format = "[$symbol ]($style)"
