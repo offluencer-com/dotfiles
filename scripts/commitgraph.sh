@@ -9,8 +9,13 @@ CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/codeberg-heatmap.json"
 MAX_AGE=3600
 URL="https://codeberg.org/api/v1/users/$USER_NAME/heatmap"
 
+# Optional access token, so private repos count too. Keep it out of git.
+TOKEN_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/codeberg/token"
+
 refresh() {
-  curl -fsS --max-time 5 "$URL" -o "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE"
+  auth=()
+  [ -r "$TOKEN_FILE" ] && auth=(-H "Authorization: token $(cat "$TOKEN_FILE")")
+  curl -fsS --max-time 5 "${auth[@]}" "$URL" -o "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE"
 }
 
 mkdir -p "$(dirname "$CACHE")"
