@@ -61,3 +61,4 @@ export TEXMFHOME="$HOME/.local/share/texmf"
 
 export PATH="$HOME/.local/bin:$PATH"
 "$HOME/dotfiles/scripts/commitgraph.sh"
+export CLAUDE_CONFIG_DIR="$HOME/.config/claude"

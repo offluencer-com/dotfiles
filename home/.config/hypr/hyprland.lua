@@ -70,6 +70,11 @@ end)
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+-- TeX: keep its files in the XDG folders, not ~/.texlive
+local home = os.getenv("HOME")
+hl.env("TEXMFVAR",    home .. "/.cache/texlive/texmf-var")
+hl.env("TEXMFCONFIG", home .. "/.config/texlive/texmf-config")
+hl.env("TEXMFHOME",   home .. "/.local/share/texmf")
 
 -----------------------
 ----- PERMISSIONS -----
