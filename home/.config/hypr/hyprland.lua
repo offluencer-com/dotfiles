@@ -264,6 +264,8 @@ local scriptsDir = os.getenv("HOME") .. "/dotfiles/scripts"
 
 hl.bind("SUPER + P", hl.dsp.exec_cmd(scriptsDir .. "/writing.sh"))
 
+hl.bind("SUPER + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+
 hl.bind("SUPER + V", hl.dsp.exec_cmd(" brave --app=https://www.youtube.com/feed/subscriptions "))
 
 hl.bind("SUPER + O", hl.dsp.exec_cmd(browser))
