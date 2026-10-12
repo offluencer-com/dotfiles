@@ -60,3 +60,4 @@ export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 export TEXMFHOME="$HOME/.local/share/texmf"
 
 export PATH="$HOME/.local/bin:$PATH"
+"$HOME/dotfiles/scripts/commitgraph.sh"
