@@ -41,6 +41,11 @@ wal -i "$SELECTED_IMG"
 pkill dunst
 dunst -config "$HOME/.cache/wal/dunstrc" &
 
+# Reload Zathura with new Pywal colors
+for z in $(busctl --user list --no-legend | awk '/org.pwmt.zathura/ {print $1}'); do
+  busctl --user call "$z" /org/pwmt/zathura org.pwmt.zathura ExecuteCommand s "source" >/dev/null
+done
+
 # Reload Waybar with new Pywal colors
 pkill waybar
 waybar &
