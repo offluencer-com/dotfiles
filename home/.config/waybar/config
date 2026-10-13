@@ -10,6 +10,7 @@
     "modules-center": [],
 
     "modules-right": [
+        "tray",
         "battery",
         "clock"
     ],
@@ -35,5 +36,9 @@
         "tooltip": true,
     	"tooltip-format": "{:%A, %d %B %Y}"
     },
+    "tray": {
+		"icon-size": 17,
+		"spacing": 6,
+	},
 
 }
