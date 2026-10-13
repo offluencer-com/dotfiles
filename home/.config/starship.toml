@@ -1,7 +1,28 @@
+# Right side of the prompt: Taskwarrior counts
+right_format = '${custom.overdue}${custom.tasks}'
+
 [custom.claude]
-when = '''test -d "$HOME/.claude/projects/$(pwd | sed 's/[^a-zA-Z0-9]/-/g')"'''
+when = '''test -d "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects/$(pwd | sed 's/[^a-zA-Z0-9]/-/g')"'''
 command = "echo"
 shell = ["sh"]
 symbol = "✻"
 style = "bold #d97757"
 format = "[$symbol ]($style)"
+
+# Taskwarrior: pending tasks, hidden when there are none
+[custom.tasks]
+when    = 'test "$(task status:pending count 2>/dev/null)" -gt 0'
+command = 'task status:pending count'
+shell   = ["sh"]
+symbol  = " "
+style   = "bold blue"
+format  = "[$symbol$output]($style) "
+
+# Taskwarrior: overdue tasks in red, hidden when there are none
+[custom.overdue]
+when    = 'test "$(task +OVERDUE count 2>/dev/null)" -gt 0'
+command = 'task +OVERDUE count'
+shell   = ["sh"]
+symbol  = " "
+style   = "bold red"
+format  = "[$symbol$output]($style) "
