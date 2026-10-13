@@ -27,3 +27,8 @@ include default.theme
 #include no-color.theme
 
 data.location=~/.local/share/task
+
+
+# Cleaner default list
+report.next.columns=id,priority,project,due.relative,description.count
+report.next.labels=ID,P,Project,Due,Task
