@@ -1,15 +1,12 @@
 # [Created by task 3.5.0 9/27/2026 18:28:20]
-data.location=~/.task
 news.version=3.5.0
 
-# To use the default location of the XDG directories,
-# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
-
-#data.location=~/.local/share/task
+# Where the tasks are stored
+data.location=~/.local/share/task
 #hooks.location=~/.config/task/hooks
 
-# Color theme (uncomment one to use)
-include default.theme
+# Color theme (keep one uncommented)
+#include default.theme
 #include light-16.theme
 #include light-256.theme
 #include bubblegum-256.theme
@@ -26,9 +23,27 @@ include default.theme
 #include solarized-light-256.theme
 #include no-color.theme
 
-data.location=~/.local/share/task
+report.next.columns=id,description.count,due.relative,project
+report.next.labels=ID,Task,Due,Project
+report.list.columns=id,description.count,due.relative,project
+report.list.labels=ID,Task,Due,Project
 
 
-# Cleaner default list
-report.next.columns=id,priority,project,due.relative,description.count
-report.next.labels=ID,P,Project,Due,Task
+# Colors from the terminal palette, so they follow pywal
+color.alternate=
+color.header=color4
+color.footnote=color8
+color.label=bold color4
+color.label.sort=bold color4
+color.active=bold color2
+color.due=color3
+color.due.today=bold color3
+color.overdue=bold color1
+color.uda.priority.H=bold color5
+color.uda.priority.M=color5
+color.uda.priority.L=color8
+color.tagged=color6
+color.recurring=color6
+color.blocked=color8
+color.completed=color8
+color.deleted=color8

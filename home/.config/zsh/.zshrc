@@ -50,7 +50,6 @@ if [ -f "$HOME/.cache/wal/colors.sh" ]; then
     "
 fi
 
-export TASKRC="$HOME/.config/task/taskrc"
 export GOPATH="$HOME/.local/share/go"
 export PATH="$PATH:$GOPATH/bin"
 export npm_config_cache="$HOME/.local/share/npm/cache"
