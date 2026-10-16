@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
-# Compact Codeberg contribution graph for the terminal.
+# Compact GitHub contribution graph for the terminal.
 # One small square per day, one column per week. Empty days follow pywal, active days are green.
 
-USER_NAME="${CODEBERG_USER:-offluencer}"
+USER_NAME="${GITHUB_USER:-offluencer-com}"
 WEEKS="${COMMITGRAPH_WEEKS:-26}"
 CELL="■"   # try ▪ for smaller squares with wider gaps
-CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/codeberg-heatmap.json"
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/github-heatmap.txt"
 MAX_AGE=3600
-URL="https://codeberg.org/api/v1/users/$USER_NAME/heatmap"
 
-# Optional access token, so private repos count too. Keep it out of git.
-TOKEN_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/codeberg/token"
+# Uses the gh login, so private contributions count too. Cache holds "<day number> <count>" lines.
+QUERY='query($login: String!) { user(login: $login) { contributionsCollection { contributionCalendar {
+  weeks { contributionDays { date contributionCount } } } } } }'
 
 refresh() {
-  auth=()
-  [ -r "$TOKEN_FILE" ] && auth=(-H "Authorization: token $(cat "$TOKEN_FILE")")
-  curl -fsS --max-time 5 "${auth[@]}" "$URL" -o "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE"
+  gh api graphql -f query="$QUERY" -f login="$USER_NAME" --jq '
+    .data.user.contributionsCollection.contributionCalendar.weeks[].contributionDays[]
+    | select(.contributionCount > 0)
+    | "\((.date + "T00:00:00Z" | fromdateiso8601) / 86400) \(.contributionCount)"' > "$CACHE.tmp" \
+    && mv "$CACHE.tmp" "$CACHE"
 }
 
 mkdir -p "$(dirname "$CACHE")"
@@ -43,16 +45,7 @@ function col(n) {
   if (n <= 7) return "\033[38;2;38;166;65m"
   return "\033[38;2;57;211;83m"
 }
-BEGIN { RS = "}" }
-{
-  if (match($0, /"timestamp":[0-9]+/)) {
-    t = substr($0, RSTART + 12, RLENGTH - 12)
-    if (match($0, /"contributions":[0-9]+/)) {
-      c = substr($0, RSTART + 16, RLENGTH - 16)
-      cnt[int((t + off) / 86400)] += c
-    }
-  }
-}
+{ cnt[$1] += $2 }
 END {
   today = int((now + off) / 86400)
   start = today - (today + 3) % 7 - (weeks - 1) * 7   # Monday, weeks ago
