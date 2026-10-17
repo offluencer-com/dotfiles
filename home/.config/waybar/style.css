@@ -27,6 +27,24 @@ window#waybar {
     color: @color4;
 }
 
+#battery.charging,
+#battery.plugged {
+    color: @color2;
+}
+
+#battery.warning:not(.charging) {
+    color: @color3;
+}
+
+#battery.critical:not(.charging) {
+    color: @color1;
+    animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+    to { color: @background; }
+}
+
 #clock {
     padding: 0 10px;
     color: @color4;
