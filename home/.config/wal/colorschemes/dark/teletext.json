@@ -1,0 +1,27 @@
+{
+  "wallpaper": "~/Pictures/wallpapers/teletext-black-center-1920x1080.png",
+  "alpha": "100",
+  "special": {
+    "background": "#000000",
+    "foreground": "#e6e6e6",
+    "cursor": "#28ff50"
+  },
+  "colors": {
+    "color0":  "#000000",
+    "color1":  "#ff2828",
+    "color2":  "#28ff50",
+    "color3":  "#ffe628",
+    "color4":  "#326eff",
+    "color5":  "#ff3cdc",
+    "color6":  "#28f0ff",
+    "color7":  "#e6e6e6",
+    "color8":  "#555555",
+    "color9":  "#ff6464",
+    "color10": "#78ff8c",
+    "color11": "#fff078",
+    "color12": "#7aa0ff",
+    "color13": "#ff82e8",
+    "color14": "#82f6ff",
+    "color15": "#ffffff"
+  }
+}
