@@ -1,0 +1,33 @@
+/* Emoji picker: same look as config.rasi, but emojis sit in a grid */
+@import "config.rasi"
+
+/* Window */
+window {
+    width: 30%;
+}
+
+/* Grid: 8 emojis per row, 6 rows, filled left to right */
+listview {
+    columns: 8;
+    lines: 6;
+    flow: horizontal;
+    spacing: 4px;
+}
+
+/* One emoji per cell, centered. No icon slot, so the emoji gets the whole cell */
+element {
+    padding: 8px 0;
+    spacing: 0;
+    children: [ element-text ];
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 16";
+    horizontal-align: 0.5;
+}
+
+/* Keyboard: Alt+h / Alt+l move left and right, like Alt+j / Alt+k */
+configuration {
+    kb-row-left: "Alt+h,Control+Page_Up";
+    kb-row-right: "Alt+l,Control+Page_Down";
+}
