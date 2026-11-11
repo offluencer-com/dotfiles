@@ -4,6 +4,8 @@ android-file-transfer
 base
 base-devel
 biber
+blender
+bluetui
 bluez
 bluez-utils
 brightnessctl
@@ -19,6 +21,7 @@ ffmpegthumbnailer
 fuse2
 fzf
 git
+github-cli
 glow
 gnome-keyring
 go
@@ -52,6 +55,7 @@ nodejs
 noto-fonts
 noto-fonts-emoji
 npm
+nss-mdns
 nsxiv
 obs-studio
 papirus-icon-theme
@@ -62,12 +66,15 @@ pipewire-pulse
 polkit-kde-agent
 power-profiles-daemon
 python-adblock
+python-mutagen
 python-secretstorage
 qbittorrent
 qt5-wayland
 qt6-wayland
 qutebrowser
 rofi
+rofi-emoji
+satty
 slurp
 smartmontools
 sof-firmware
@@ -84,7 +91,9 @@ texlive-fontsextra
 texlive-fontsrecommended
 texlive-langcyrillic
 texlive-langeuropean
+texlive-langgreek
 texlive-latexextra
+texlive-xetex
 thunar
 tree
 tree-sitter-cli
@@ -113,6 +122,7 @@ xf86-video-ati
 xf86-video-nouveau
 xorg-xrdb
 yazi
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zathura-ps

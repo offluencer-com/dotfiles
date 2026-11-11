@@ -1,3 +1,4 @@
+anydesk-bin
 brave-bin
 brave-debloater
 iloader-bin
@@ -7,5 +8,6 @@ proton-mail-bin
 python-pywal16
 spotifast-bin
 ttf-libron
+viber
 yay
 yay-debug

@@ -23,7 +23,8 @@ refresh() {
 
 mkdir -p "$(dirname "$CACHE")"
 if [ ! -s "$CACHE" ]; then
-  refresh 2>/dev/null || exit 0
+  # no gh or no login: the graph stays grey, the Poet panel still shows
+  refresh 2>/dev/null || touch "$CACHE"
 elif [ $(( $(date +%s) - $(stat -c %Y "$CACHE") )) -gt "$MAX_AGE" ]; then
   (refresh >/dev/null 2>&1 &)
 fi
