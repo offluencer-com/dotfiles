@@ -35,3 +35,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 
 })
+
+-- Writing stats: on every save inside ~/Documents/Writing, update the word log in the
+-- background, so words count on the day they were written (see scripts/writingstats.sh).
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = prose_group,
+  pattern = { vim.fn.expand("~/Documents/Writing") .. "/*.tex", vim.fn.expand("~/Documents/Writing") .. "/*.md" },
+  callback = function()
+    vim.fn.jobstart({ vim.fn.expand("~/dotfiles/scripts/writingstats.sh"), "--record" })
+  end,
+})
