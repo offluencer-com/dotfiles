@@ -13,4 +13,8 @@ dir="$root/$project"
 [ -d "$dir/chapters" ] && dir="$dir/chapters"
 
 cd "$dir" || exit 1
-exec kitty nvim -c "ZenMode"
+# The writing window uses Xanh Mono, an old-book serif close to the book's EB Garamond
+# (the terminal only takes monospace fonts). Other terminals keep their normal font.
+# Xanh Mono has no bold, so bold text uses the regular face instead of the italic.
+exec kitty -o font_family="Xanh Mono" -o 'bold_font=family="Xanh Mono" style=Regular' \
+  -o font_size=18 nvim -c "ZenMode"

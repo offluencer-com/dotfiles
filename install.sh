@@ -56,7 +56,7 @@ done < <(grep -vE '^\s*(#|$)' aurlist.txt | grep -vE '^yay$|-debug$')
 step "Linking dotfiles with stow"
 # These must be real folders, so app data written next to the configs
 # stays out of the repo.
-mkdir -p "$HOME/.config"/{qutebrowser,zsh,spotifast,Thunar,gtk-3.0}
+mkdir -p "$HOME/.config"/{qutebrowser,zsh,spotifast,Thunar,gtk-3.0} "$HOME/.local/share/fonts"
 
 # Move aside anything that would block a link.
 BACKUP="$HOME/config-backup-$(date +%F-%H%M%S)"
@@ -70,6 +70,7 @@ while IFS= read -r -d '' f; do
 done < <(find home \( -type f -o -type l \) -print0)
 
 stow -v -t "$HOME" home
+fc-cache -f "$HOME/.local/share/fonts" >/dev/null   # pick up fonts from the repo (Xanh Mono)
 
 # Your git name and email go in ~/.gitconfig, outside the repo, so they are never shared.
 if [ -z "$(git config --global user.name)" ]; then
