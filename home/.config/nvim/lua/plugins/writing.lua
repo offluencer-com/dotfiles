@@ -14,7 +14,7 @@ return {
     dependencies = { "folke/twilight.nvim" },
     opts = {
       window = {
-        width = 90,
+        width = 72, -- narrower column = text sits more in the middle (a book page is ~65-75)
         options = {
           number = false,
           relativenumber = false,

@@ -42,6 +42,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   group = prose_group,
   pattern = { vim.fn.expand("~/Documents/Writing") .. "/*.tex", vim.fn.expand("~/Documents/Writing") .. "/*.md" },
   callback = function()
-    vim.fn.jobstart({ vim.fn.expand("~/dotfiles/scripts/writingstats.sh"), "--record" })
+    vim.fn.jobstart({ vim.fn.expand("~/dotfiles/scripts/writingstats.sh"), "--record" }, {
+      -- let the Zen mode counter know the new number is ready
+      on_exit = function()
+        vim.schedule(function() vim.api.nvim_exec_autocmds("User", { pattern = "WritingStats" }) end)
+      end,
+    })
   end,
 })
