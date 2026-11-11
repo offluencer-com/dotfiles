@@ -57,7 +57,7 @@ export npm_config_cache="$HOME/.local/share/npm/cache"
 export TEXMFVAR="$HOME/.cache/texlive/texmf-var"
 export TEXMFCONFIG="$HOME/.config/texlive/texmf-config"
 export TEXMFHOME="$HOME/.local/share/texmf"
-
+export PATH="$HOME/dotfiles/scripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 "$HOME/dotfiles/scripts/commitgraph.sh"
 export CLAUDE_CONFIG_DIR="$HOME/.config/claude"

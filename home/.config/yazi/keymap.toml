@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = "e"
+run  = 'shell --orphan -- "$HOME/dotfiles/scripts/img-edit" %h'
+desc = "Edit image in Satty"

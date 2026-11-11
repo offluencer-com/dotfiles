@@ -1,0 +1,9 @@
+#!/bin/sh
+# otvara sliku u Satty, čuva kao ime-edit.png pored originala
+f="$1"
+case "$(file -b --mime-type "$f")" in
+    image/*)
+        setsid -f satty --filename "$f" \
+            --output-filename "${f%.*}-edit.png" >/dev/null 2>&1
+        ;;
+esac

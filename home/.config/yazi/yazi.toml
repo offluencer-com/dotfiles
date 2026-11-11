@@ -32,6 +32,10 @@ video = [
   { run = 'mpv %s', orphan = true },
 ]
 
+audio = [
+  { run = 'mpv --no-audio-display %s', block = true },
+]
+
 extract = [
   { run = 'mkdir -p "%n_extracted" && tar xf %s -C "%n_extracted" 2>/dev/null || 7z x %s -o"%n_extracted"', orphan = true },
 ]
@@ -44,6 +48,10 @@ rules = [
   # videos → mpv
   { mime = "video/*", use = "video" },
 
+  # audio → mpv u terminalu
+  { mime = "audio/*", use = "audio" },
+  { mime = "application/ogg", use = "audio" },
+    
   # text → nvim
   { mime = "text/*", use = "edit" },
   { mime = "inode/empty", use = "edit" },
@@ -63,4 +71,5 @@ rules = [
 
 [mgr]
 linemode = "size"
+
 
