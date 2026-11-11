@@ -1,6 +1,5 @@
-[user]
-	name = Offluencer
-	email = mail@offluencer.com
+# Name and email are not in this repo: they live in ~/.gitconfig on each machine
+# (install.sh asks for them). Git reads both files.
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential

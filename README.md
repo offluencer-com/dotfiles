@@ -3,15 +3,18 @@
 My personal Arch Linux + Hyprland setup: configs, wallpapers, scripts and an
 install script that rebuilds the whole thing on a new machine.
 
-It is written for my own machines. You are welcome to browse it and take any
-part you like: a config, a script, a wallpaper, or the whole setup.
+> **This is my personal setup.** The install script gives you my whole system:
+> my apps, configs, bookmarks, news feeds and wallpapers. If you want it as a
+> starting point for your own, [fork it](https://github.com/offluencer-com/dotfiles/fork),
+> remove what you don't need (see [Make it yours](#make-it-yours)) and install
+> from your fork. You are also welcome to just take a single config or script.
 
 ## What is inside
 
 | Path | Contents |
 |---|---|
 | `home/.config/` | Configs, linked into `~/.config` with GNU Stow |
-| `scripts/` | `wallpaper.sh` (wallpaper picker + pywal colors), `writing.sh` (open a writing project in nvim) |
+| `scripts/` | `wallpaper.sh` (wallpaper picker + pywal colors), `writing.sh` (open a writing project in nvim), `commitgraph.sh` + `writingstats.sh` (GitHub graph and writing stats shown when a terminal opens) |
 | `wallpapers/` | Wallpapers used by `wallpaper.sh` |
 | `pkglist.txt` | Packages from the official Arch repos |
 | `aurlist.txt` | Packages from the AUR |
@@ -39,7 +42,7 @@ Reboot, log in on the console as your user and get online
 (`nmtui` for Wi-Fi). Then:
 
 ```bash
-curl -O https://codeberg.org/offluencer/dotfiles/raw/branch/main/install.sh
+curl -O https://raw.githubusercontent.com/offluencer-com/dotfiles/main/install.sh
 bash install.sh
 ```
 
@@ -51,12 +54,15 @@ It is safe to run again if something fails halfway.
 1. Reboot, choose Hyprland in the ly login screen and log in.
 2. Press `SUPER + W` once to pick a wallpaper. This also generates the colors.
 3. Open `nvim` once and wait while Mason installs the language servers.
+4. Run `gh auth login` so the GitHub graph in the terminal fills in.
 
 ## What the script does
 
 1. Installs the packages from `pkglist.txt` and `aurlist.txt` (builds `yay` first).
 2. Clones this repo to `~/dotfiles` and links the configs with Stow.
    Existing files that are in the way are moved to `~/config-backup-<date>`.
+   Asks for your git name and email and saves them in `~/.gitconfig`, outside
+   the repo.
 3. Runs pywal once so waybar, rofi, zathura, dunst and GTK have colors.
 4. Sets zsh as the shell, writes `/etc/zsh/zshenv`, adds the user to the
    `seat` and `wheel` groups.
@@ -66,11 +72,24 @@ It is safe to run again if something fails halfway.
 
 At the end it lists anything that failed.
 
-## If you use this yourself
+## Make it yours
+
+1. Fork the repo on GitHub.
+2. In your fork, change `REPO_URL` at the top of `install.sh` and the `curl`
+   link above to point to your fork.
+3. Remove what you don't want: apps from `pkglist.txt` and `aurlist.txt`,
+   my bookmarks (`home/.config/qutebrowser/`), news feeds
+   (`home/.config/newsraft/feeds`), wallpapers, and the GitHub user in
+   `scripts/commitgraph.sh`.
+4. Install from your fork.
+
+Things to know:
 
 - The repo has to live in `~/dotfiles`. Some paths depend on it.
-- `home/.config/git/config` contains my name and email. Change them.
-- `install.sh` clones my repo. If you fork it, change `REPO_URL` at the top.
+- Your git name and email are never taken from this repo. The script asks
+  for yours.
+- The writing stats read `~/Documents/Writing`. Without that folder they
+  stay empty.
 - The package list includes Intel, AMD and Nvidia open drivers, so it is not
   tied to my hardware.
 - Arch is a rolling release, so you get current package versions, not the

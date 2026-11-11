@@ -7,7 +7,7 @@
 
 set -euo pipefail
 
-REPO_URL="https://codeberg.org/offluencer/dotfiles.git"
+REPO_URL="https://github.com/offluencer-com/dotfiles.git"
 DOTFILES="$HOME/dotfiles"
 LY_TTY="tty2"                      # ly runs as ly@tty2.service
 DEFAULT_WALLPAPER="pipesmoker.jpg" # used for the first pywal run
@@ -70,6 +70,15 @@ while IFS= read -r -d '' f; do
 done < <(find home \( -type f -o -type l \) -print0)
 
 stow -v -t "$HOME" home
+
+# Your git name and email go in ~/.gitconfig, outside the repo, so they are never shared.
+if [ -z "$(git config --global user.name)" ]; then
+  step "Git name and email (used for your commits, leave empty to skip)"
+  read -rp "Name:  " git_name
+  read -rp "Email: " git_email
+  [ -n "$git_name" ]  && git config --file "$HOME/.gitconfig" user.name "$git_name"
+  [ -n "$git_email" ] && git config --file "$HOME/.gitconfig" user.email "$git_email"
+fi
 
 # ------------------------------------------------- 5. folders, links, pywal
 step "Folders, wallpapers and pywal colors"
@@ -149,4 +158,5 @@ Left to do by hand:
   3. Open nvim once and wait for Mason to install the language servers.
   4. Restore ~/.ssh and ~/Documents/Writing from your private backups.
   5. Sign in to Proton Mail, Brave, Spotify and Claude.
+  6. Run "gh auth login" so the GitHub graph in the terminal fills in.
 EOF
